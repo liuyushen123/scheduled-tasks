@@ -7,11 +7,11 @@ from smtplib import SMTP
 
 import pandas as pd
 
-today = (dt.datetime.now().month, dt.datetime.now().day, dt.datetime.now().year)
-current_month = today[0]
-current_day = today[1]
-current_year = today[2]
-print(f"Script running at {today}")
+now = dt.datetime.now()
+current_month = now.month
+current_day = now.day
+current_year = now.year
+print(f"Script running at {now}")
 my_email = os.environ["MY_EMAIL"]
 my_password = os.environ["MY_PASSWORD"]
 
