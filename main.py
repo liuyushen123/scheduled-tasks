@@ -1,5 +1,6 @@
 ##################### Extra Hard Starting Project ######################
 import datetime as dt
+import os
 import random
 from email.message import EmailMessage
 from smtplib import SMTP
@@ -13,8 +14,8 @@ current_month = today[0]
 current_day = today[1]
 current_year = today[2]
 
-my_email = "liuyushen123@gmail.com"
-my_password = "dscsgxbhdqmghqff"
+my_email = os.environ["MY_EMAIL"]
+my_password = os.environ["MY_PASSWORD"]
 
 
 def send_email(to_email, name, content):
@@ -65,5 +66,6 @@ for index, person in todays_birthday.iterrows():
             )
             print(letter_template)
             send_email(person["email"], person["name"], letter_template)
-    except FileNotFoundError:
-        raise FileNotFoundError
+    except Exception as e:
+        print(f"Error: {e}")
+        raise
