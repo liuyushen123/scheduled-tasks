@@ -14,6 +14,7 @@ current_year = now.year
 print(f"Script running at {now}")
 my_email = os.environ["MY_EMAIL"]
 my_password = os.environ["MY_PASSWORD"]
+print(my_password)
 
 
 def send_email(to_email, name, content):
